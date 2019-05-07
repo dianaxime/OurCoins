@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "836543178088",
+    "firebase_url": "https://ourcoins-379bb.firebaseio.com",
+    "project_id": "ourcoins-379bb",
+    "storage_bucket": "ourcoins-379bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:836543178088:android:d7a37de1141ae70a",
+        "android_client_info": {
+          "package_name": "com.example.ourcoins"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "836543178088-1cpimpsq62utgdes78a1rk5phv0krmbt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ourcoins",
+            "certificate_hash": "42c3c676abf11bd0d2944d5124e9c930a7c5a8a7"
+          }
+        },
+        {
+          "client_id": "836543178088-2mggcbda3i9jh5s1k3s4bhs3c2647pdd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCupRBbwdC1a2h9aMB_RaNVUsK3LpP6KUY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "836543178088-2mggcbda3i9jh5s1k3s4bhs3c2647pdd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
