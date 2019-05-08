@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             tools:context=".expenseDescription" android:id="@+id/frameLayout">
+    <EditText
+            android:layout_width="213dp"
+            android:layout_height="0dp"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/editText3" android:text="Date"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="104dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="94dp"
+            app:layout_constraintHorizontal_bias="1.0" android:layout_marginTop="82dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="27dp"
+            app:layout_constraintBottom_toTopOf="@+id/checkedTextView"/>
+    <CheckedTextView
+            android:text="Category"
+            android:layout_width="189dp"
+            android:layout_height="38dp"
+            android:id="@+id/checkedTextView" android:layout_marginEnd="114dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="109dp" app:layout_constraintHorizontal_bias="1.0"
+            android:layout_marginTop="160dp" app:layout_constraintTop_toTopOf="parent"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Amount"
+            android:ems="10"
+            android:id="@+id/editText4"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="107dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="91dp"
+            app:layout_constraintHorizontal_bias="1.0" android:layout_marginBottom="19dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView13" android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/checkedTextView" app:layout_constraintVertical_bias="1.0"/>
+    <TextView
+            android:text="Username"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:id="@+id/textView13" android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="222dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="109dp"
+            app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="19dp"
+            app:layout_constraintTop_toBottomOf="@+id/editText4" android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/editText5"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Note"
+            android:ems="10"
+            android:id="@+id/editText5" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="89dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="109dp" app:layout_constraintHorizontal_bias="1.0"
+            android:layout_marginBottom="30dp" app:layout_constraintBottom_toTopOf="@+id/checkedTextView2"
+            android:layout_marginTop="17dp" app:layout_constraintTop_toBottomOf="@+id/textView13"/>
+    <CheckedTextView
+            android:text="Type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkedTextView2" android:layout_marginEnd="271dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="110dp" android:layout_marginBottom="315dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="21dp"
+            app:layout_constraintTop_toBottomOf="@+id/editText5"/>
+    <ImageView
+            android:src="@drawable/googleg_standard_color_18"
+            android:layout_width="83dp"
+            android:layout_height="75dp"
+            android:id="@+id/imageView" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="104dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="150dp" android:layout_marginTop="79dp"
+            app:layout_constraintTop_toBottomOf="@+id/checkedTextView2" app:layout_constraintVertical_bias="0.0"/>
+    <ImageView
+            android:src="@drawable/googleg_standard_color_18"
+            android:layout_width="77dp"
+            android:layout_height="74dp"
+            android:id="@+id/imageView4" android:layout_marginEnd="102dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="45dp" app:layout_constraintStart_toEndOf="@+id/imageView"
+            android:layout_marginTop="138dp" app:layout_constraintTop_toBottomOf="@+id/editText5"
+            android:layout_marginBottom="151dp" app:layout_constraintBottom_toBottomOf="parent"/>
+</android.support.constraint.ConstraintLayout>
