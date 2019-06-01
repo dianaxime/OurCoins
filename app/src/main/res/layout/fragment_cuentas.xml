@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context=".Cuentas">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             tools:context=".Cuentas" android:id="@+id/relativeLayout11">
     <android.support.v7.widget.RecyclerView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_alignParentStart="true"
-            android:layout_marginStart="22dp" android:layout_alignParentTop="true" android:layout_marginTop="13dp"
-            android:layout_alignParentEnd="true" android:layout_marginEnd="19dp" android:layout_alignParentBottom="true"
-            android:layout_marginBottom="112dp">
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/recyclerView3">
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
         </LinearLayout>
     </android.support.v7.widget.RecyclerView>
-    <ImageButton
-            android:src="@drawable/add"
-            android:layout_width="75dp"
-            android:layout_height="75dp" android:layout_alignParentEnd="true" android:layout_marginEnd="29dp"
-            android:layout_alignParentBottom="true" android:id="@+id/imageButton4" android:layout_marginBottom="22dp"
-            android:background="@drawable/add"/>
-</RelativeLayout>
+    <android.support.design.widget.FloatingActionButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:clickable="true" android:id="@+id/floatingActionButton3"
+            app:maxImageSize="@dimen/maxim"
+            android:background="@drawable/add"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="24dp"
+            />
+</android.support.constraint.ConstraintLayout>
