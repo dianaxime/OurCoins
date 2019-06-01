@@ -42,7 +42,7 @@ class ExpenseDetails : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_expense_details, container, false)
+        return inflater.inflate(R.layout.fragment_card_expensedetails, container, false)
     }
 
     // TODO: Rename method, update argument and hook method into UI event
