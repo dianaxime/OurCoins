@@ -46,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
         mAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    val startIntent  = Intent(applicationContext , MainActivity::class.java)
+                    val startIntent  = Intent(applicationContext , HomeActivity::class.java)
                     startActivity(startIntent)
                     finish()
                     progressBar2.visibility= View.GONE

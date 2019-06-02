@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+                android:id="@+id/Movements"
+                android:icon="@drawable/ic_repeat_black_24dp"
+                android:title="Movements"/>
+        <item
+                android:id="@+id/Account"
+                android:icon="@drawable/ic_credit_card_black_24dp"
+                android:title="Account"/>
+        <item
+                android:id="@+id/Statistics"
+                android:icon="@drawable/ic_equalizer_black_24dp"
+                android:title="Statistics"/>
+        <item
+                android:id="@+id/Enter_expenses"
+                android:icon="@drawable/ic_money_off_black_24dp"
+                android:title="Enter expenses"/>
+        <item android:title="Enter income" android:icon="@drawable/ic_monetization_on_black_24dp"
+              android:id="@+id/Enter_income"/>
+        <item android:title="Groups" android:id="@+id/Groups" android:icon="@drawable/ic_group_black_24dp"/>
+        <item android:title="Balance" android:id="@+id/Balance"
+              android:icon="@drawable/ic_account_balance_wallet_black_24dp"/>
+        <item android:title="About" android:id="@+id/About" android:icon="@drawable/ic_announcement_black_24dp"/>
+    </group>
+
+</menu>

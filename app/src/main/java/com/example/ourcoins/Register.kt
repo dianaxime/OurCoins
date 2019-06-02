@@ -56,7 +56,7 @@ class Register : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
 
-                    val Intent = Intent(applicationContext, MainActivity::class.java)
+                    val Intent = Intent(applicationContext, HomeActivity::class.java)
                     startActivity(Intent)
                     finish()
                     progressBar.visibility=View.GONE
