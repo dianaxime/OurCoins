@@ -80,25 +80,32 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(startIntent)
             }
             R.id.Account -> {
-
+                val startIntent  = Intent(applicationContext , AccountActivity::class.java)
+                startActivity(startIntent)
             }
             R.id.Statistics -> {
-
+                val startIntent  = Intent(applicationContext , StatisticsActivity::class.java)
+                startActivity(startIntent)
             }
             R.id.Enter_expenses -> {
-
+                val startIntent  = Intent(applicationContext , ExpensesActivity::class.java)
+                startActivity(startIntent)
             }
             R.id.Enter_income -> {
-
+                val startIntent  = Intent(applicationContext , IncomesActivity::class.java)
+                startActivity(startIntent)
             }
             R.id.Groups -> {
-
+                val startIntent  = Intent(applicationContext , GroupsActivity::class.java)
+                startActivity(startIntent)
             }
             R.id.Balance -> {
-
+                val startIntent  = Intent(applicationContext , BalanceActivity::class.java)
+                startActivity(startIntent)
             }
             R.id.About -> {
-
+                val startIntent  = Intent(applicationContext , AboutActivity::class.java)
+                startActivity(startIntent)
             }
         }
 
@@ -114,7 +121,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 var correo = user.email
                 Username.text = nombre
                 Useremail.text = correo
-                PhotoProfile.setImageURI(user.photoUrl)
             }
         }
     }

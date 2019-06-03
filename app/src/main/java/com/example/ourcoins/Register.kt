@@ -48,9 +48,7 @@ class Register : AppCompatActivity() {
     }
     fun createUser( email: String, password: String) {
 
-
         progressBar.visibility= View.VISIBLE
-
 
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
