@@ -12,7 +12,6 @@ import android.view.MenuItem
 import android.widget.Toast
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.android.synthetic.main.activity_home.*
@@ -25,17 +24,17 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         loadUserInfo()
-        setSupportActionBar(toolbar)
-
         mAuth= FirebaseAuth.getInstance()
 
+        setSupportActionBar(toolbar)
+
         val toggle = ActionBarDrawerToggle(
-            this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+            this, drawerhome, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
-        drawer_layout.addDrawerListener(toggle)
+        drawerhome.addDrawerListener(toggle)
         toggle.syncState()
 
-        nav_view.setNavigationItemSelectedListener(this)
+        navhome.setNavigationItemSelectedListener(this)
 
     }
 
@@ -56,8 +55,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onBackPressed() {
-        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
-            drawer_layout.closeDrawer(GravityCompat.START)
+        if (drawerhome.isDrawerOpen(GravityCompat.START)) {
+            drawerhome.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }
@@ -83,40 +82,49 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.Movements -> {
+                Log.e("SI","PRESIONO")
                 val startIntent  = Intent(applicationContext , MainActivity::class.java)
                 startActivity(startIntent)
+                this.finish()
             }
             R.id.Account -> {
-                val startIntent  = Intent(applicationContext , AccountActivity::class.java)
+                val startIntent  = Intent(this , AccountActivity::class.java)
                 startActivity(startIntent)
+                this.finish()
             }
             R.id.Statistics -> {
                 val startIntent  = Intent(applicationContext , StatisticsActivity::class.java)
                 startActivity(startIntent)
+                this.finish()
             }
             R.id.Enter_expenses -> {
                 val startIntent  = Intent(applicationContext , ExpensesActivity::class.java)
                 startActivity(startIntent)
+                this.finish()
             }
             R.id.Enter_income -> {
                 val startIntent  = Intent(applicationContext , IncomesActivity::class.java)
                 startActivity(startIntent)
+                this.finish()
             }
             R.id.Groups -> {
                 val startIntent  = Intent(applicationContext , GroupsActivity::class.java)
                 startActivity(startIntent)
+                this.finish()
             }
             R.id.Balance -> {
                 val startIntent  = Intent(applicationContext , BalanceActivity::class.java)
                 startActivity(startIntent)
+                this.finish()
             }
             R.id.About -> {
                 val startIntent  = Intent(applicationContext , AboutActivity::class.java)
                 startActivity(startIntent)
+                this.finish()
             }
         }
 
-        drawer_layout.closeDrawer(GravityCompat.START)
+        drawerhome.closeDrawer(GravityCompat.START)
         return true
     }
 

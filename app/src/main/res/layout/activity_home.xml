@@ -3,12 +3,25 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/drawer_layout"
+        android:id="@+id/drawerhome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         tools:openDrawer="start">
 
+    <include
+            layout="@layout/app_bar_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:id="@+id/includehome"/>
+    <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navhome"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_home"
+            app:menu="@menu/activity_home_drawer">
+    </com.google.android.material.navigation.NavigationView>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -22,18 +35,5 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:fitsSystemWindows="true"
-            app:headerLayout="@layout/nav_header_home"
-            app:menu="@menu/activity_home_drawer">
-    </com.google.android.material.navigation.NavigationView>
-    <include
-            layout="@layout/app_bar_home"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

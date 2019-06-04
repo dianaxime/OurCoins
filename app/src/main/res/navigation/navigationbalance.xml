@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/navigationbalance">
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigationbalance"
+            app:startDestination="@id/members">
 
+    <fragment android:id="@+id/members" android:name="com.example.ourcoins.Members" android:label="OurCoins>Balance"
+              tools:layout="@layout/fragment_members"/>
 </navigation>
