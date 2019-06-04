@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigationincomes"
+            app:startDestination="@id/addAccount">
+
+    <fragment android:id="@+id/addAccount" android:name="com.example.ourcoins.AddAccount"
+              android:label="OurCoins>Incomes" tools:layout="@layout/fragment_add_account"/>
+</navigation>

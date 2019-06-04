@@ -9,11 +9,19 @@
         android:fitsSystemWindows="true"
         tools:openDrawer="start">
 
-    <include
-            layout="@layout/app_bar_home"
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent">
 
+        <fragment
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="0dp"
+                android:layout_height="0dp" app:navGraph="@navigation/navigationhome" app:defaultNavHost="true"
+                android:id="@+id/fragment" app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <com.google.android.material.navigation.NavigationView
             android:id="@+id/nav_view"
             android:layout_width="wrap_content"
@@ -21,6 +29,11 @@
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
             app:headerLayout="@layout/nav_header_home"
-            app:menu="@menu/activity_home_drawer"/>
+            app:menu="@menu/activity_home_drawer">
+    </com.google.android.material.navigation.NavigationView>
+    <include
+            layout="@layout/app_bar_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>
