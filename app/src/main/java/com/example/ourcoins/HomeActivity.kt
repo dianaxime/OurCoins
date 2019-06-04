@@ -2,6 +2,7 @@ package com.example.ourcoins
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.navigation.NavigationView
 import androidx.core.view.GravityCompat
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -9,7 +10,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.nav_header_home.*
@@ -19,6 +24,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        loadUserInfo()
         setSupportActionBar(toolbar)
 
         mAuth= FirebaseAuth.getInstance()
@@ -30,7 +36,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
-        loadUserInfo()
+
     }
 
     override fun onStart() {
@@ -44,6 +50,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             finish()
 
         }else{
+            //loadUserInfo()
             Toast.makeText(applicationContext , "Login Successfully" , Toast.LENGTH_SHORT).show()
         }
     }
@@ -114,15 +121,41 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     fun loadUserInfo(){
-        val user = mAuth.currentUser
-        user?.let {
+        val user = FirebaseAuth.getInstance().currentUser
+        val us = FirebaseFirestore.getInstance()
+        us.collection("users").get().addOnSuccessListener { OnSuccessListener<QuerySnapshot> {
+            Log.e("SHOW",it.toObjects(User::class.java).size.toString())
+
+        }
+        }
+        getuserinfo(us)
+        if (user != null) {
             if (user.displayName!=null) {
+
                 var nombre = user.displayName
-                var correo = user.email
                 Username.text = nombre
-                Useremail.text = correo
             }
         }
+    }
+    fun getuserinfo(mFirebaseFirestore: FirebaseFirestore) {
+        val TAG = "SS"
+        val correo = intent.getStringExtra("CORREO")
+        mFirebaseFirestore.collection("users").whereEqualTo("correo", correo).get()
+            .addOnSuccessListener(OnSuccessListener { documentSnapshots ->
+                if (documentSnapshots.isEmpty) {
+                    Log.e(TAG, "onSuccess: LIST EMPTY")
+                    return@OnSuccessListener
+                } else {
+                    val types = documentSnapshots.toObjects(User::class.java)
+
+                    Username.text = types[0].nombre!!
+                    Useremail.text=types[0].correo!!
+                    Log.e(TAG, "onSuccess: " + types[0].nombre!!)
+                }
+            })
+        mAuth= FirebaseAuth.getInstance()
+
+
     }
 
 }

@@ -7,16 +7,20 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_register.*
 
 class Register : AppCompatActivity() {
 
 
     lateinit var mAuth: FirebaseAuth
+    lateinit var  database : FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        database= FirebaseFirestore.getInstance()
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -30,6 +34,7 @@ class Register : AppCompatActivity() {
         RRegisterButton.setOnClickListener {
             val email = REmail.text.toString().trim()
             val password = RPassword.text.toString().trim()
+            val name = RName.text.toString().trim()
 
 
             if (TextUtils.isEmpty(email)) {
@@ -42,22 +47,39 @@ class Register : AppCompatActivity() {
                 RPassword.error = "Enter Password"
                 return@setOnClickListener
             }
+            if (TextUtils.isEmpty(name)) {
 
-            createUser(email, password)
+                RName.error = "Enter Name"
+                return@setOnClickListener
+            }
+
+            createUser(email, password, name)
         }
     }
-    fun createUser( email: String, password: String) {
+    fun createUser( email: String, password: String, name: String) {
 
         progressBar.visibility= View.VISIBLE
 
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
+                if (task.isComplete) {
 
-                    val Intent = Intent(applicationContext, HomeActivity::class.java)
-                    startActivity(Intent)
-                    finish()
-                    progressBar.visibility=View.GONE
+                    val user: FirebaseUser? =mAuth.currentUser
+
+                    val OUser= User(user!!.uid, name, email).toMap()
+
+                    database!!.collection("users")
+                        .add(OUser)
+                        .addOnSuccessListener { documentReference ->
+                            val Intent = Intent(applicationContext, LoginActivity::class.java)
+                            startActivity(Intent)
+                            finish()
+                            progressBar.visibility=View.GONE
+                        }
+                        .addOnFailureListener { e ->
+
+                            Toast.makeText(applicationContext, "¡ERROR!", Toast.LENGTH_SHORT).show()
+                        }
 
                 } else {
 

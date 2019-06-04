@@ -47,7 +47,8 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val startIntent  = Intent(applicationContext , HomeActivity::class.java)
-                    startActivity(startIntent)
+                    startIntent.putExtra("CORREO", email)
+                    startActivityForResult(startIntent,1)
                     finish()
                     progressBar2.visibility= View.GONE
                 } else {
