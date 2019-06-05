@@ -22,5 +22,105 @@
             app:headerLayout="@layout/nav_header_home"
             app:menu="@menu/activity_home_drawer">
     </com.google.android.material.navigation.NavigationView>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+                android:text="Username"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView13" android:textSize="24sp"
+                android:layout_marginStart="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="24dp" android:layout_marginTop="32dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView35"/>
+        <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editText5"
+                app:layout_constraintStart_toEndOf="@+id/textView36"
+                android:layout_marginStart="24dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+                android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/textView13"/>
+        <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/editText6" android:layout_marginTop="100dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/textView12"
+                android:layout_marginStart="24dp"/>
+        <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/editText7" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp" android:layout_marginTop="32dp"
+                app:layout_constraintTop_toBottomOf="@+id/spinner" app:layout_constraintStart_toEndOf="@+id/textView35"
+                android:layout_marginStart="24dp"/>
+        <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+                app:layout_constraintStart_toEndOf="@+id/textView34" android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/editText6"/>
+        <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/spinner2" android:layout_marginEnd="16dp"
+                app:layout_constraintStart_toEndOf="@+id/textView37" android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/editText5"/>
+        <TextView
+                android:text="Date:"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView12" android:textSize="24sp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="24dp" android:layout_marginTop="100dp"
+                app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+                android:text="Category:"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView34" android:textSize="24sp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="24dp" android:layout_marginTop="32dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView12"/>
+        <TextView
+                android:text="Amount:"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView35" android:textSize="24sp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="24dp" android:layout_marginTop="32dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView34"/>
+        <TextView
+                android:text="Note:"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView36" android:textSize="24sp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView13" android:layout_marginStart="24dp"
+                app:layout_constraintStart_toStartOf="parent"/>
+        <TextView
+                android:text="Account:"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView37" android:textSize="24sp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="24dp" android:layout_marginTop="32dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView36"/>
+        <Button
+                android:text="ADD"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" android:id="@+id/button"
+                android:layout_marginTop="32dp"
+                app:layout_constraintTop_toBottomOf="@+id/spinner2" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="32dp" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="32dp" android:textSize="24sp" android:onClick="guardarReceta"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>
