@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -25,8 +27,9 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_home)
         loadUserInfo()
         mAuth= FirebaseAuth.getInstance()
-
-        setSupportActionBar(toolbar)
+        //val navController = this.findNavController(R.id.fragment)
+        //NavigationUI.setupActionBarWithNavController(this, this.findNavController(R.id.fragment))
+        //setSupportActionBar(toolbar)
 
         val toggle = ActionBarDrawerToggle(
             this, drawerhome, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
@@ -37,6 +40,11 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navhome.setNavigationItemSelectedListener(this)
 
     }
+
+    /*override fun onSupportNavigateUp(): Boolean {
+        val navController = this.findNavController((R.id.fragment))
+        return navController.navigateUp()
+    }*/
 
     override fun onStart() {
         super.onStart()
@@ -50,7 +58,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         }else{
             //loadUserInfo()
-            Toast.makeText(applicationContext , "Login Successfully" , Toast.LENGTH_SHORT).show()
+            //Toast.makeText(applicationContext , "Login Successfully" , Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -83,42 +91,57 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.Movements -> {
                 Log.e("SI","PRESIONO")
-                val startIntent  = Intent(applicationContext , MainActivity::class.java)
+                val startIntent  = Intent(applicationContext , HomeActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
-            R.id.Account -> {
+           R.id.Account -> {
                 val startIntent  = Intent(this , AccountActivity::class.java)
+               startIntent.putExtra("CORREO", Useremail.text.toString())
+               startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.Statistics -> {
                 val startIntent  = Intent(applicationContext , StatisticsActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.Enter_expenses -> {
                 val startIntent  = Intent(applicationContext , ExpensesActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.Enter_income -> {
                 val startIntent  = Intent(applicationContext , IncomesActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.Groups -> {
                 val startIntent  = Intent(applicationContext , GroupsActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.Balance -> {
                 val startIntent  = Intent(applicationContext , BalanceActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.About -> {
                 val startIntent  = Intent(applicationContext , AboutActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
@@ -127,6 +150,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerhome.closeDrawer(GravityCompat.START)
         return true
     }
+
 
     fun loadUserInfo(){
         val user = FirebaseAuth.getInstance().currentUser
@@ -152,6 +176,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             .addOnSuccessListener(OnSuccessListener { documentSnapshots ->
                 if (documentSnapshots.isEmpty) {
                     Log.e(TAG, "onSuccess: LIST EMPTY")
+                    Log.e(TAG, correo)
                     return@OnSuccessListener
                 } else {
                     val types = documentSnapshots.toObjects(User::class.java)

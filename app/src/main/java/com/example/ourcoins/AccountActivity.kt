@@ -3,13 +3,16 @@ package com.example.ourcoins
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.Window
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_account.*
 import kotlinx.android.synthetic.main.app_bar_home.*
+import kotlinx.android.synthetic.main.nav_header_home.*
 
 class AccountActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -18,6 +21,7 @@ class AccountActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         setContentView(R.layout.activity_account)
         setSupportActionBar(toolbar)
 
+
         val toggle = ActionBarDrawerToggle(
             this, draweraccount, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
@@ -25,6 +29,12 @@ class AccountActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         toggle.syncState()
 
         navaccount.setNavigationItemSelectedListener(this)
+
+        //load()
+    }
+
+    fun load(){
+        GetInfo()
     }
 
     override fun onBackPressed() {
@@ -56,41 +66,56 @@ class AccountActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         when (item.itemId) {
             R.id.Movements -> {
                 val startIntent  = Intent(applicationContext , HomeActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.Account -> {
                 val startIntent  = Intent(applicationContext , AccountActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.Statistics -> {
                 val startIntent  = Intent(applicationContext , StatisticsActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.Enter_expenses -> {
                 val startIntent  = Intent(applicationContext , ExpensesActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.Enter_income -> {
                 val startIntent  = Intent(applicationContext , IncomesActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.Groups -> {
                 val startIntent  = Intent(applicationContext , GroupsActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.Balance -> {
                 val startIntent  = Intent(applicationContext , BalanceActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.About -> {
                 val startIntent  = Intent(applicationContext , AboutActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
@@ -98,5 +123,15 @@ class AccountActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
         draweraccount.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    fun GetInfo(){
+        //Log.e("RE", intent.getStringExtra("CORREO"))
+
+        val email = intent.getStringExtra("CORREO")
+        val name = intent.getStringExtra("NOMBRE")
+          Useremail.text=email!!
+         Username.text=name!!
+
     }
 }

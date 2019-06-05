@@ -46,6 +46,7 @@ class LoginActivity : AppCompatActivity() {
         mAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+                    Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show()
                     val startIntent  = Intent(applicationContext , HomeActivity::class.java)
                     startIntent.putExtra("CORREO", email)
                     startActivityForResult(startIntent,1)

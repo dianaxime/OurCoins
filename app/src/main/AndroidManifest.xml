@@ -11,23 +11,37 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".AboutActivity">
+        <activity android:name=".AboutActivity"
+                  android:label="About"
+                  android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".BalanceActivity">
+        <activity android:name=".BalanceActivity"
+                  android:label="Balance"
+                  android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".GroupsActivity">
+        <activity android:name=".GroupsActivity"
+                  android:label="Groups"
+                  android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".IncomesActivity">
+        <activity android:name=".IncomesActivity"
+                  android:label="Incomes"
+                  android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".ExpensesActivity">
+        <activity android:name=".ExpensesActivity"
+                  android:label="Expenses"
+                  android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".StatisticsActivity">
+        <activity android:name=".StatisticsActivity"
+                  android:label="Statistics"
+                  android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".AccountActivity">
+        <activity android:name=".AccountActivity"
+                  android:label="Account"
+                  android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
                 android:name=".HomeActivity"
-                android:label="@string/title_activity_home"
+                android:label="Home"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".Register">

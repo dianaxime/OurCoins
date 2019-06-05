@@ -10,6 +10,7 @@ import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_incomes.*
 import kotlinx.android.synthetic.main.app_bar_home.*
+import kotlinx.android.synthetic.main.nav_header_home.*
 
 class IncomesActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -26,6 +27,8 @@ class IncomesActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         toggle.syncState()
 
         navincomes.setNavigationItemSelectedListener(this)
+
+       // GetInfo()
     }
 
     override fun onBackPressed() {
@@ -57,41 +60,56 @@ class IncomesActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         when (item.itemId) {
             R.id.Movements -> {
                 val startIntent  = Intent(applicationContext , MainActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.Account -> {
                 val startIntent  = Intent(applicationContext , AccountActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.Statistics -> {
                 val startIntent  = Intent(applicationContext , StatisticsActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.Enter_expenses -> {
                 val startIntent  = Intent(applicationContext , ExpensesActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.Enter_income -> {
                 val startIntent  = Intent(applicationContext , IncomesActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.Groups -> {
                 val startIntent  = Intent(applicationContext , GroupsActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.Balance -> {
                 val startIntent  = Intent(applicationContext , BalanceActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
             R.id.About -> {
                 val startIntent  = Intent(applicationContext , AboutActivity::class.java)
+                startIntent.putExtra("CORREO", Useremail.text.toString())
+                startIntent.putExtra("NOMBRE", Username.text.toString())
                 startActivity(startIntent)
                 this.finish()
             }
@@ -99,5 +117,12 @@ class IncomesActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
         drawerincomes.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    fun GetInfo(){
+        var email = intent.getStringExtra("CORREO")
+        var name = intent.getStringExtra("NOMBRE")
+        Useremail.text=email!!
+        Username.text=name!!
     }
 }
